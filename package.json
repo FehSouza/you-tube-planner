@@ -1,16 +1,23 @@
 {
-  "name": "fase-1-javascript",
+  "name": "you-tube-planner",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:mock": "vite --mode mock",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "msw": "^2.6.2",
     "sass-embedded": "^1.80.6",
     "typescript": "~5.6.2",
     "vite": "^5.4.10"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
