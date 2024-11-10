@@ -1,25 +1,21 @@
-import { Video } from './@types'
+import { RenderErrorProps, RenderResultsProps } from './@types'
+import { message } from './components'
 import './reset.scss'
 import { searchVideos, searchVideosId } from './services'
 import './style.scss'
 
-interface RenderResultsProps {
-  videos: Video[]
-  times: number[]
-}
-
 export const handleSearch = () => {
+  const $times = [...document.querySelectorAll<HTMLInputElement>('.time-container input')]
   const $search = document.querySelector<HTMLInputElement>('.search-container input')
   const $button = document.querySelector<HTMLButtonElement>('.submit-button')
-  const $times = [...document.querySelectorAll<HTMLInputElement>('.time-container input')]
-  if (!$search || !$button || $times?.length !== 7) return
+  const $results = document.querySelector<HTMLDivElement>('.results-container')
+  if ($times?.length !== 7 || !$search || !$button || !$results) return
 
   $button?.addEventListener('click', async (e) => {
     e.preventDefault()
 
     // const value = $search.value
     const value = 'test'
-    if (!value) return console.log('Precisa de um termo para a busca')
 
     // const times = $times.map((time) => {
     //   if (!time.value) return 0
@@ -28,7 +24,10 @@ export const handleSearch = () => {
     const times = [15, 120, 30, 150, 20, 40, 90]
 
     const hasTime = times.find((time) => time !== 0)
-    if (!hasTime) return console.log('Precisa de pelo menos um tempo para a busca')
+
+    if (!value && !hasTime) return renderError({ container: $results, error: 'Informe a disponibilidade, em minutos, e uma palavra-chave' })
+    if (!value) return renderError({ container: $results, error: 'Informe uma palavra-chave' })
+    if (!hasTime) return renderError({ container: $results, error: 'Informe a disponibilidade, em minutos' })
 
     try {
       const videos = await search(value)
@@ -36,8 +35,15 @@ export const handleSearch = () => {
       renderResults({ videos, times })
     } catch (error) {
       console.log(error)
+      return renderError({ container: $results, error: 'Ocorreu um erro inesperado, tente novamente mais tarde...' })
     }
   })
+}
+
+const renderError = ({ container, error }: RenderErrorProps) => {
+  const messageElem = message({ message: error, status: 'error' })
+  container.innerHTML = ''
+  container.appendChild(messageElem)
 }
 
 const search = async (term: string) => {

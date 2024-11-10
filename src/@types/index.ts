@@ -125,3 +125,13 @@ export interface Video {
   thumbnail: Default
   duration: string
 }
+
+export interface RenderErrorProps {
+  container: HTMLElement
+  error: string
+}
+
+export interface RenderResultsProps {
+  videos: Video[]
+  times: number[]
+}
