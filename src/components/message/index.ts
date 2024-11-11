@@ -1,4 +1,7 @@
-import { MessageProps } from './types'
+interface MessageProps {
+  message: string
+  status?: string
+}
 
 export const message = ({ message, status }: MessageProps) => {
   const text = document.createElement('p')

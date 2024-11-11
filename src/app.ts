@@ -1,8 +1,13 @@
-import { RenderErrorProps, RenderResultsProps } from './@types'
 import { message } from './components'
 import './reset.scss'
 import { searchVideos, searchVideosId } from './services'
 import './style.scss'
+import { videosByTime, VideosByTimeProps } from './utils'
+
+export interface RenderErrorProps {
+  container: HTMLElement
+  error: string
+}
 
 export const handleSearch = () => {
   const $times = [...document.querySelectorAll<HTMLInputElement>('.time-container input')]
@@ -19,9 +24,9 @@ export const handleSearch = () => {
 
     // const times = $times.map((time) => {
     //   if (!time.value) return 0
-    //   return Number(time.value)
+    //   return Number(time.value) * 60
     // })
-    const times = [15, 120, 30, 150, 20, 40, 90]
+    const times = [0, 2000, 0, 2000, 0, 2000, 0]
 
     const hasTime = times.find((time) => time !== 0)
 
@@ -31,6 +36,7 @@ export const handleSearch = () => {
 
     try {
       const videos = await search(value)
+
       if (!videos?.length) return console.log('Nenhum vídeo encontrado para a busca')
       renderResults({ videos, times })
     } catch (error) {
@@ -52,9 +58,7 @@ const search = async (term: string) => {
   return videos
 }
 
-const renderResults = ({ videos, times }: RenderResultsProps) => {
-  console.log(videos, times)
-
-  const maxTime = Math.max(...times)
-  console.log(maxTime)
+const renderResults = ({ videos, times }: VideosByTimeProps) => {
+  const results = videosByTime({ videos, times })
+  console.log(results)
 }
