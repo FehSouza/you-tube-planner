@@ -15,11 +15,13 @@ export const handleSearch = () => {
     e.preventDefault()
 
     const value = $search.value
+    // const value = 'test'
 
     const times = $times.map((time) => {
       if (!time.value) return 0
       return Number(time.value) * 60
     })
+    // const times = [0, 2000, 0, 2000, 0, 2000, 0]
 
     const hasTime = times.find((time) => time !== 0)
 
