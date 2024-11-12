@@ -123,5 +123,6 @@ export interface Video {
   title: string
   description: string
   thumbnail: Default
+  duration: string
   durationInSeconds: number
 }

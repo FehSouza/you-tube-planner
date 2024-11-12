@@ -2,6 +2,7 @@ export const MOCK_VIDEOS_ID = {
   kind: 'youtube#searchListResponse',
   etag: 'QZg33KWpwCy95KfoeUpb5fUicZw',
   regionCode: 'BR',
+  nextPageToken: 'teste',
   pageInfo: {
     totalResults: 1000000,
     resultsPerPage: 50,

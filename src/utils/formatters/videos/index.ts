@@ -8,6 +8,7 @@ export const formatVideos = (videos: VideoItem[]) => {
 
     const videoDTO: Video = {
       id: video.id,
+      duration,
       durationInSeconds: durationFormatted,
       title: video.snippet?.title,
       description: video.snippet?.description,

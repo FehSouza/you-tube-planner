@@ -8,7 +8,7 @@ export interface VideosByTimeProps {
 export const videosByTime = ({ videos, times }: VideosByTimeProps) => {
   const maxTime = Math.max(...times)
 
-  let week = 0
+  let week = 1
   let currentTimeIndex = 0
   let currentTime = times[currentTimeIndex]
 
@@ -16,8 +16,8 @@ export const videosByTime = ({ videos, times }: VideosByTimeProps) => {
     const duration = video.durationInSeconds
 
     if (duration > maxTime) {
-      if (!acc['ignored']) return { ...acc, ['ignored']: [video] }
-      return { ...acc, ['ignored']: [...acc['ignored'], video] }
+      if (!acc.ignored) return { ...acc, ignored: { ignoredVideos: [video] } }
+      return { ...acc, ignored: { ignoredVideos: [...acc.ignored.ignoredVideos, video] } }
     }
 
     while (duration > currentTime) {
@@ -27,11 +27,13 @@ export const videosByTime = ({ videos, times }: VideosByTimeProps) => {
     }
 
     currentTime = currentTime - duration
-    const key = `week${week}-day${currentTimeIndex}`
+    const keyWeek = `week${week}`
+    const keyDay = `day${currentTimeIndex}`
 
-    if (!acc[key]) return { ...acc, [key]: [video] }
-    return { ...acc, [key]: [...acc[key], video] }
-  }, {} as Record<string, Video[]>)
+    if (!acc[keyWeek]) return { ...acc, [keyWeek]: { [keyDay]: [video] } }
+    if (!acc[keyWeek][keyDay]) return { ...acc, [keyWeek]: { ...acc[keyWeek], [keyDay]: [video] } }
+    return { ...acc, [keyWeek]: { ...acc[keyWeek], [keyDay]: [...acc[keyWeek][keyDay], video] } }
+  }, {} as Record<string, Record<string, Video[]>>)
 
   return results
 }
