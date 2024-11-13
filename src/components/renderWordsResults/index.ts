@@ -1,3 +1,5 @@
+import './styles.scss'
+
 import { MostFoundWordsProps, mostFoundWords } from '../../utils'
 
 interface RenderWordsResultsProps extends MostFoundWordsProps {
@@ -32,6 +34,6 @@ export const renderWordsResults = ({ videos, container }: RenderWordsResultsProp
     recurrenceItem.textContent = `(${recurrence})`
     item.appendChild(recurrenceItem)
 
-    wordsContainer.appendChild(item)
+    wordsContent.appendChild(item)
   })
 }

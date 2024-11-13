@@ -1,0 +1,29 @@
+.words-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.words-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.words-content p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  border-radius: 4px;
+  background-color: #1c1725;
+  padding: 10px;
+
+  span {
+    color: #88848f;
+    font-size: 14px;
+  }
+}

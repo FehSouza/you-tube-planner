@@ -1,0 +1,50 @@
+.week-container {
+  order: 1;
+  margin-top: 64px;
+
+  &.last {
+    order: 2;
+  }
+
+  .week-title {
+    color: #563394e6;
+    text-decoration: underline;
+  }
+
+  .day-title {
+    color: #563394;
+  }
+
+  .week-content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 16px;
+  }
+
+  .day-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .video-container {
+    width: fit-content;
+
+    &:hover a {
+      color: #88848f;
+    }
+  }
+
+  .video-container a {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+
+  .video-container span {
+    color: #88848f;
+    font-size: 14px;
+  }
+}

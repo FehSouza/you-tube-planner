@@ -1,3 +1,5 @@
+import './styles.scss'
+
 import { DICTIONARY_DAY } from '../../dictionary'
 import { VideosByTimeProps, videosByTime } from '../../utils'
 
@@ -65,7 +67,7 @@ export const renderPlanningResults = ({ videos, times, container }: RenderResult
 
         const duration = document.createElement('span')
         duration.textContent = `Duração: ${timeFormatted}`
-        item.appendChild(duration)
+        title.appendChild(duration)
       })
     })
   })

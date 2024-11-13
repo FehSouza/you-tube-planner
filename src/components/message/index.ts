@@ -1,3 +1,5 @@
+import './styles.scss'
+
 interface MessageProps {
   message: string
   status?: string
