@@ -23,7 +23,7 @@ SASS, JavaScript, Typescript e MSW
 
 <h4>Front-end</h4>
 
-pnpm i
+pnpm install
 
 &nbsp;
 
