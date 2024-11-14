@@ -23,8 +23,7 @@ export const renderWordsResults = ({ videos, container }: RenderWordsResultsProp
   wordsContainer.appendChild(wordsContent)
 
   results.forEach((result) => {
-    const word = result[0]
-    const recurrence = result[1]
+    const [word, recurrence] = result
 
     const item = document.createElement('p')
     item.classList.add('word')

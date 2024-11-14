@@ -12,8 +12,7 @@ export const renderPlanningResults = ({ videos, times, container }: RenderResult
   const weekResults = Object.entries(results)
 
   weekResults.forEach((weekResult) => {
-    const week = weekResult[0]
-    const content = weekResult[1]
+    const [week, content] = weekResult
     const isIgnored = week.includes('ignored')
 
     const weekContainer = document.createElement('div')
@@ -33,8 +32,7 @@ export const renderPlanningResults = ({ videos, times, container }: RenderResult
     const dayResults = Object.entries(content)
 
     dayResults.forEach((dayResult) => {
-      const day = dayResult[0]
-      const content = dayResult[1]
+      const [day, content] = dayResult
 
       const dayContainer = document.createElement('div')
       dayContainer.classList.add('day-container')
