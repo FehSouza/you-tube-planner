@@ -7,7 +7,7 @@ Este projeto trata-se de um site que calcula o tempo necessário para assistir a
 Foi desenvolvido com o intuito de aprofundar conceitos de JavaScript Avançado apresentados no primeiro módulo da pós tech FIAP Front-end Engineering
 
 <h4>Prévia</h4>
-<img src="./src/assets/images/imagem-desktop.png">
+<img src="./src/assets/images/application-image.png">
 
 &nbsp;
 
