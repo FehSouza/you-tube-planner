@@ -4,7 +4,7 @@
 
 Este projeto trata-se de um site que calcula o tempo necessário para assistir a todos os vídeos desejados do YouTube, organizando-os conforme a disponibilidade semanal indicada, desenvolvido para desktop e mobile (100% responsivo).
 
-Foi desenvolvido com o intuito de aprofundar conceitos de JavaScript Avançado apresentados no primeiro módulo da pós tech Front-end Engineering
+Foi desenvolvido com o intuito de aprofundar conceitos de JavaScript Avançado apresentados no primeiro módulo da pós tech FIAP Front-end Engineering
 
 <h4>Prévia</h4>
 <img src="./src/assets/images/imagem-desktop.png">
@@ -23,7 +23,9 @@ SASS, JavaScript, Typescript e MSW
 
 <h4>Front-end</h4>
 
+```bash
 pnpm install
+```
 
 &nbsp;
 
@@ -31,7 +33,9 @@ pnpm install
 
 Para executar a aplicação, é preciso criar um arquivo .env seguindo o .env.example
 
-Crie uma chave de acesso através do <a href="https://console.cloud.google.com/welcome" target="_blank">Google Cloud Console</a>
+Crie uma chave de acesso através do [Google Cloud Platform](https://console.cloud.google.com/apis/credentials)
+
+> Habilite a chave de acesso na API do YouTube
 
 &nbsp;
 
@@ -39,14 +43,20 @@ Crie uma chave de acesso através do <a href="https://console.cloud.google.com/w
 
 <h4>Front-end - Requisições da API</h4>
 
+```bash
 pnpm dev
+```
+
+&nbsp;
 
 <h4>Front-end - Requisições do mock</h4>
 
+```bash
 pnpm dev:mock
+```
 
 &nbsp;
 
 ## Link Vercel
 
-<a href="https://you-tube-planner-eight.vercel.app/" target="_blank">YouTube Planner</a>
+[YouTube Planner](https://you-tube-planner-eight.vercel.app/)
