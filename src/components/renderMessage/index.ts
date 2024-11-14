@@ -1,13 +1,11 @@
-import { message } from '../message'
+import { message, MessageProps } from '../message'
 
-interface RenderMessageProps {
+interface RenderMessageProps extends MessageProps {
   container: HTMLElement
-  text: string
-  status?: string
 }
 
 export const renderMessage = ({ container, text, status }: RenderMessageProps) => {
-  const messageElem = message({ message: text, status })
+  const messageElem = message({ text, status })
   container.innerHTML = ''
   container.appendChild(messageElem)
 }

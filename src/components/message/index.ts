@@ -1,14 +1,14 @@
 import './styles.scss'
 
-interface MessageProps {
-  message: string
-  status?: string
+export interface MessageProps {
+  text: string
+  status: 'default' | 'warning' | 'error'
 }
 
-export const message = ({ message, status }: MessageProps) => {
-  const text = document.createElement('p')
-  text.classList.add('message')
-  if (status) text.classList.add(status)
-  text.textContent = message
-  return text
+export const message = ({ text, status }: MessageProps) => {
+  const textElem = document.createElement('p')
+  textElem.classList.add('message')
+  textElem.classList.add(status)
+  textElem.textContent = text
+  return textElem
 }

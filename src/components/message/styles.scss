@@ -1,3 +1,11 @@
-.message.error {
+.message.default {
+  color: #ffffff;
+}
+
+.message.warning {
   color: #563394;
+}
+
+.message.error {
+  color: #563394e6;
 }
