@@ -54,9 +54,3 @@ pnpm dev
 ```bash
 pnpm dev:mock
 ```
-
-&nbsp;
-
-## Link Vercel
-
-[YouTube Planner](https://you-tube-planner-eight.vercel.app/)
